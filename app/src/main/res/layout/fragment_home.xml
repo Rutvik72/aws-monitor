@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/deleteAllInstances"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/updateAPILink"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/info"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteAllInstances"
+        app:layout_constraintEnd_toStartOf="@+id/deleteAllInstances"
+        app:layout_constraintTop_toTopOf="@+id/deleteAllInstances" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="90dp"
+        app:cardElevation="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/appicon"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/progressCardView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="85dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintStart_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toTopOf="@+id/cardView3">
+        
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:cpb_background_progressbar_color="#E65100"
+            app:cpb_background_progressbar_width="8dp"
+            app:cpb_indeterminate_mode="true"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/white"
+            app:cpb_progressbar_width="4dp"
+            app:cpb_round_border="false"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/progressCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Monitor your instances"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/neumorphFloatingActionButton"
+                app:layout_constraintEnd_toStartOf="@+id/neumorphFloatingActionButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/neumorphFloatingActionButton" />
+
+            <soup.neumorphism.NeumorphFloatingActionButton
+                android:id="@+id/neumorphFloatingActionButton"
+                style="@style/Widget.Neumorph.FloatingActionButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:padding="25dp"
+                android:src="@drawable/add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:neumorph_backgroundColor="@color/light_goldenrod_yellow"
+                app:neumorph_shadowColorDark="@color/light_grey" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Get all the details of running instances to minitor and control."
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/neumorphFloatingActionButton"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/neumorphFloatingActionButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Instance Status"
+                android:textColor="@color/black"
+                app:rippleColor="@android:color/transparent"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:background="@drawable/searchbar"
+                android:drawableEnd="@drawable/search_icon"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Search Instances"
+                android:imeOptions="actionGo"
+                android:inputType="text"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                app:layout_constraintEnd_toEndOf="@+id/materialButton"
+                app:layout_constraintStart_toStartOf="@+id/materialButton"
+                app:layout_constraintTop_toBottomOf="@+id/materialButton" />
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
